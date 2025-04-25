@@ -1,0 +1,22 @@
+.book-form {
+    display: flex; /* Align items in one line */
+    flex-direction: column;
+    gap: 10px;     /* Add space between inputs */
+    padding: 30px;  
+    align-items: flex-start; /* Vertically align items */
+    background-color: lightblue;
+    width: 500px;
+    height: 100vh;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .book-form div {
+    display: flex;
+    flex-direction: column; /* Label and input vertically aligned */
+    gap: 5px;              /* Small gap between label and input */
+    width: 100%;           /* Make input boxes full width */
+  }

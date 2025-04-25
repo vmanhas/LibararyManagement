@@ -1,0 +1,31 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.Nav {
+  height: 3rem;
+  opacity: 0.8;
+  background-color: #3d5a80;
+  display: flex; /* Flex layout */
+  position: relative; /* Fix navbar at top */
+  gap: 160px; /* Space between links */
+  justify-content: center; /* Push items to right */
+  width: 100%; /* Full-width navbar */
+  align-items: center;
+  padding: 10px 60px; /* Add padding to avoid edge cutting */
+   /* Optional */
+  box-sizing: border-box; /* Prevent padding from increasing width */
+  position: sticky;
+  z-index: 1000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: whitesmoke;
+  box-shadow: 1px 1px 12px -3px rgba(0, 0, 0, 0.75);
+  background-size: 100%;
+}
+.Nav div a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}

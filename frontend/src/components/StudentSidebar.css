@@ -1,0 +1,88 @@
+/* .student-form {
+  display: flex; 
+  flex-direction: column;
+  gap: 10px; 
+  padding: 30px;
+  align-items: flex-start; 
+  background-color: lightblue;
+  width: 500px;
+  box-sizing: border-box;
+  height: 100vh;
+  display: block;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.student-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+.butt {
+  background-color: aqua;
+} */
+.student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  background-color: #f0f8ff;
+  width: 100%;
+  max-width: 600px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0 auto;
+}
+
+.student-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.student-form label {
+  font-weight: 600;
+  color: #333;
+}
+
+.student-form input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.student-form input:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.3);
+}
+
+.student-form span {
+  color: red;
+  font-size: 12px;
+}
+
+.butt {
+  background-color: #0077cc;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.butt:hover {
+  background-color: #005fa3;
+}

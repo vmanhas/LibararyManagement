@@ -1,0 +1,49 @@
+.boss{
+    width: 70%;
+    height: 50vh;
+  }
+  
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 10px auto;
+    text-align: center;
+  }
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid #333;
+    width: 8rem;
+  }
+  th {
+    background-color: #f4f4f4;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tr:hover {
+    background-color: #ddd;
+  }
+  .lis {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adds spacing between elements */
+    align-items: center; /* Centers content */
+    
+  }
+  
+  .lis input {
+    width: 500px; /* Increase input width */
+    padding: 8px; /* Add padding for better appearance */
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default focus outline */
+    font-size: 16px;
+    transition: 0.3s; /* Smooth transition effect */
+  }
+  
+  .lis input:focus {
+    border-color: #0056b3; /* Darker blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5); /* Add glow effect */
+  }
+  

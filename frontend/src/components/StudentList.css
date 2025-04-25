@@ -1,0 +1,71 @@
+.stud {
+  width: 70%;
+  height: 50vh;
+}
+
+table {
+  width: 80%;
+  margin: 10px auto;
+  text-align: center;
+  border-collapse: separate;
+  text-indent: initial;
+  border-spacing: 2px;
+}
+th,
+td {
+  padding: 0.5rem;
+  cursor: pointer;
+  display: table-cell;
+  vertical-align: inherit;
+  unicode-bidi: isolate;
+  width: 15rem;
+  width: 8rem;
+}
+th {
+  background-color: rgb(61, 90, 128); 
+  /* background-color: #f4f4f4; */
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  text-align: left;
+}
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+tr:hover {
+  background-color: #ddd;
+}
+.lis {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adds spacing between elements */
+  align-items: center; /* Centers content */
+  
+}
+
+.lis input {
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 5px; /* Rounded corners */
+  outline: none; /* Remove default focus outline */
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+  padding: 5px;
+  padding-left: 24px;
+  font-weight: 500;
+  width: 92%;
+  font-size: medium;
+  transition: 0.2s;
+  margin: 10px;
+  margin-left: 182px;
+}
+
+.lis input:focus {
+  border-color: #0056b3; /* Darker blue border on focus */
+  box-shadow: 0 0 5px rgba(0, 91, 187, 0.5); /* Add glow effect */
+}
+thead{
+  background-color: rgb(61, 90, 128); 
+  color: white;
+}
