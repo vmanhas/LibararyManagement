@@ -3,7 +3,12 @@ const API_URL='http://localhost:8080/book';
 
 export const addbook=async(book)=>{
     try{
-        const response=await axios.post(API_URL,book);
+        const token = localStorage.getItem("token");
+        const response = await axios.post(API_URL, book, {
+            headers: {
+              Authorization: `Bearer ${token}`,         
+            },
+          });
         return response.data;
     }catch(err){
         console.err("Something wrong",err.message);
@@ -29,21 +34,35 @@ export const getbook=async()=>{
 }
 export const deleteBook=async(id)=>{
     try{
-        await axios.delete(`${API_URL}/${id}`);
+        const token=localStorage.getItem("token");
+        await axios.delete(`${API_URL}/${id}`,{
+            headers:{
+                Authorization:`Bearer ${token}`,
+            },
+        });
 
     }catch(err)
     {
-        console.log(err.message);
-        throw err;
+      if(err.response)
+      {
+        alert(`Error ${err.response.data.message}`);
+      }
     }
 }
 export const updateBook=async(id,updateddata)=>{
     try{
-       const response= await axios.put(`${API_URL}/${id}`,updateddata);
+        const token=localStorage.getItem("token");
+       const response= await axios.put(`${API_URL}/${id}`,updateddata,{
+        headers:{
+            Authorization:`Bearer ${token}`,
+        },
+       });
        return response.data;
 
     }catch(err){
-        console.log(err);
-        throw err;
+        if(err.response)
+        {
+            alert(`Error ${err.response.data.message}`);
+        }
     }
 }

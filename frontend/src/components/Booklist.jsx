@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { getbook} from "../api/bookApi";
+import { getbook } from "../api/bookApi";
 import "./Booklist.css";
-import  {deleteBook} from "../api/bookApi";
-const BookList = ({seteditbook}) => {
+import { deleteBook } from "../api/bookApi";
+// import { addbook } from "../api/bookApi";
+import { addborrow, returnBorrow } from "../api/borrowApi";
+const BookList = ({ seteditbook, isAdmin }) => {
   const [query, setquery] = useState("");
   const [book, setbook] = useState([]);
-
+  
   const fetchbook = async (data) => {
     try {
       const response = await getbook(data);
@@ -18,20 +20,18 @@ const BookList = ({seteditbook}) => {
   useEffect(() => {
     fetchbook();
   }, []);
-  const ondel=async(id)=>{
-    try{
+  const ondel = async (id) => {
+    try {
       await deleteBook(id);
       fetchbook();
-
-    }catch(err){
+    } catch (err) {
       console.log(err);
       throw err;
-
     }
-  }
-  const onupdate=async(x)=>{
-   seteditbook(x);
-  }
+  };
+  const onupdate = async (x) => {
+    seteditbook(x);
+  };
   return (
     <>
       <div className="lis">
@@ -50,7 +50,9 @@ const BookList = ({seteditbook}) => {
                 <th>Price</th>
                 <th>Category</th>
                 <th>Count</th>
-                <th>Actions</th>
+                {isAdmin && <th>Actions</th>}
+                {!isAdmin && <th>Actions</th>}
+                {/* <th>Actions</th> */}
               </tr>
             </thead>
             <tbody>
@@ -68,14 +70,34 @@ const BookList = ({seteditbook}) => {
                     <td>{x.price} </td>
                     <td>{x.category}</td>
                     <td>{x.count} </td>
-                    <td>
-                      {
+
+                    {/* {
                         <>
                           <button onClick={()=>ondel(x._id)}type="submit">Del</button>
                           <button onClick={()=>onupdate(x)}type="submit">Update</button>
                         </>
-                      }
-                    </td>
+                      } */}
+
+                    {!isAdmin &&(
+                      <td>
+                        <>
+                        <button onClick={async () => { await addborrow(x._id); fetchbook(); }} type="submit">Burrow</button>
+                        <button onClick={async () => { await returnBorrow(x._id); fetchbook(); }} type="submit">Return</button>
+                        </>
+                      </td>
+                    )}
+                    {isAdmin && (
+                      <td>
+                        <>
+                          <button onClick={() => ondel(x._id)} type="submit">
+                            Del
+                          </button>
+                          <button onClick={() => onupdate(x)} type="submit">
+                            Update
+                          </button>
+                        </>
+                      </td>
+                    )}
                   </tr>
                 ))}
             </tbody>

@@ -25,6 +25,9 @@
     background-color: #ddd;
   }
   .lis {
+    position: sticky;
+    top: 50px;
+    right: 500px;
     display: flex;
     flex-direction: column;
     gap: 10px; /* Adds spacing between elements */

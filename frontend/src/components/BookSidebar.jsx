@@ -53,7 +53,7 @@ export default function BookSidebar({ editbook, seteditbook }) {
         }
      
     } catch (err) {
-      console.err("Error", err.message);
+      console.log("Error", err.message);
     }
 
     window.location.reload();

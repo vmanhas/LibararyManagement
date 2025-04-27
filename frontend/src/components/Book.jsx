@@ -4,12 +4,20 @@ import BookSidebar from "./BookSidebar";
 import BookList from "./Booklist";
 export default function Book(){
     const [editbook,seteditbook]=useState(null);
+    const student=JSON.parse(localStorage.getItem("student"));
+    let isAdmin=false;
+    console.log(student);
+    if(student.role==="admin")
+    {
+        isAdmin=true;
+    }
     return (
 
         <>
         <div className="book-main">
-        <BookSidebar editbook={editbook} seteditbook={seteditbook}></BookSidebar>
-        <BookList seteditbook={seteditbook}></BookList>
+        {isAdmin && (<BookSidebar editbook={editbook} seteditbook={seteditbook}></BookSidebar>)}
+        
+        <BookList seteditbook={seteditbook} isAdmin={isAdmin}></BookList>
         </div>
         </>
 

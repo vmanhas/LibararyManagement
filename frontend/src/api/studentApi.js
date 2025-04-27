@@ -17,18 +17,29 @@ export const addstudent = async (student) => {
 
 export const getStudent = async () => {
   try {
-    const response = await axios.get(API_URL);
+    const token = localStorage.getItem("token");
+    const response = await axios.get(API_URL, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     console.log(response);
     return response.data;
   } catch (err) {
-    console.log(err.messsage);
-    throw err;
+    if (err.response) {
+      alert(`Error : ${err.response.data.message}`);
+    }
   }
 };
 
 export const deleteStudent = async (id) => {
   try {
-    await axios.delete(`${API_URL}/${id}`);
+    const token = localStorage.getItem("token");
+    await axios.delete(`${API_URL}/${id}`,{
+      headers:{
+        Authorization:`Bearer ${token}`,
+    },
+    });
   } catch (err) {
     console.log(err.message);
     throw err;
@@ -37,7 +48,12 @@ export const deleteStudent = async (id) => {
 
 export const updateStudent = async (id, student) => {
   try {
-    const response = await axios.put(`${API_URL}/${id}`, student);
+    const token = localStorage.getItem("token");
+    const response = await axios.put(`${API_URL}/${id}`, student,{
+      headers:{
+        Authorization:`Bearer ${token}`,
+    },
+    });
     return response.data;
   } catch (error) {
     console.error(

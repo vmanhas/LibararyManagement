@@ -39,6 +39,7 @@ export default function Login() {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("student", JSON.stringify(response.data.student));
             alert(`Login successfull ${response.data.message}`);
+            window.location.href = '/';
 
         }
       }

@@ -17,11 +17,15 @@ const studentRoute = require("./routes/studentRoute");
 const bookRoute = require("./routes/bookRoute.js");
 const registerRouter = require("./routes/registerRouter.js");
 const loginRoute=require("./routes/loginRoute.js");
+const logout=require("./controllers/logoutController.js")
+const borrowRoute=require("./routes/borrowRoute.js")
 const authmiddleware=require("./middleware/authmiddleware.js");
-app.use("/student", studentRoute);
+app.use("/student",authmiddleware, studentRoute);
 app.use("/book",authmiddleware,bookRoute);
 app.use("/register", registerRouter);
 app.use("/login",loginRoute);
+app.use("/borrow",borrowRoute);
+// app.get("/logout",logout);
 //app.use('/user',userRoutes);
 app.use(cors());
 app.use(express.static("public")); // Serving static images

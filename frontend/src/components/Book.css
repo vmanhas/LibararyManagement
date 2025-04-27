@@ -1,4 +1,7 @@
 .book-main{
     display: flex;
     background-color:#e0fbfc;
+    position:fixed;
+    top: 50px;
+    right: 500px;
 }
