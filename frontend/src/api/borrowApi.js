@@ -47,16 +47,14 @@ export const returnBorrow = async (bookid) => {
   }
 };
 
-// export const deleteBorrow=async(id)=>{
-//     try{
-//         await axios.delete(`${API_URL}/${id}`);
-
-//     }catch(err)
-//     {
-//         console.log(err.message);
-//         throw err;
-//     }
-// }
+export const deleteBorrow = async (id) => {
+  try {
+    await axios.delete(`${API_URL}/${id}`);
+  } catch (err) {
+    console.log(err.message);
+    throw err;
+  }
+};
 // export const updateBorrow=async(id,updateddata)=>{
 //     try{
 //        const response= await axios.put(`${API_URL}/${id}`,updateddata);

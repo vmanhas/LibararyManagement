@@ -5,6 +5,7 @@ import StudentSidebar from "./StudentSidebar";
 import Student from "./Student";
 import "./StudentList.css";
 import { Button } from "@mui/material";
+import {deleteBorrow} from "../api/borrowApi";
 const StudentList = ({ oneditstudent }) => {
   const [query, setquery] = useState("");
   const [student, setstudent] = useState([]);
@@ -23,6 +24,7 @@ const StudentList = ({ oneditstudent }) => {
   }, []);
   const handledelete = async (id) => {
     try {
+      await deleteBorrow(id);
       await deleteStudent(id);
 
       fetchStudent();
@@ -82,7 +84,7 @@ const StudentList = ({ oneditstudent }) => {
                             variant="outlined"
                             color="error"
                             size="large"
-                            onClick={() => handledelete(x._id)}
+                            onClick={() => (handledelete(x._id))}
                           >
                             Del
                           </Button>{" "}

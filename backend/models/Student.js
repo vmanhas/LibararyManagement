@@ -28,7 +28,7 @@ const StudentSchema=new mongoose.Schema({
     },
     password:{
         type:String,
-        reuqired:true,
+        required:true,
         
     },
     role:{

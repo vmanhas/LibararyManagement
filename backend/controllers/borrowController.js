@@ -69,4 +69,15 @@ const returnBorrow=async(req,res)=>{
     }
 }
 
-module.exports={createBorrow,getBorrow,returnBorrow};
+const deleteBorrow=async(req,res)=>{
+  try{
+    const {id}=req.params;
+    const borrow=await Borrow.deleteMany({ student: id });
+    res.status(200).json({ message: "Student and their borrows deleted successfully" });
+  }catch(err)
+  {
+    return res.status(404).json({message:`Error ${err}`});
+  }
+}
+
+module.exports={createBorrow,getBorrow,returnBorrow,deleteBorrow};
